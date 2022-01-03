@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ChatEngine } from 'react-chat-engine';
 import { auth } from '../firebase';
@@ -45,7 +45,6 @@ function Chats() {
       formdata.append('secret', user.uid)
 
       getFile(user.photoURL).then((avatar) => {
-        console.log('===avatar goes here', avatar)
         formdata.append('avatar', avatar, avatar.name)
         axios.post('https://api.chatengine.io/users', formdata, {
           headers: {
